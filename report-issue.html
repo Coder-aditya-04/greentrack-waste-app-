@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenTrack | Report an Issue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet" />
+  <link href="assets/css/eco-pages.css" rel="stylesheet" />
+</head>
+<body>
+  <header class="eco-nav">
+    <div class="nav-wrap">
+      <p class="brand">GreenTrack</p>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="learn-segregation.html">Learn Segregation</a>
+        <a class="active" href="report-issue.html">Report an Issue</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="impact.html">Impact</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="auth.html">App Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="report-shell">
+    <section class="report-form">
+      <h1>🚨 See a Mess? Let Us Know!</h1>
+      <p>Report cleanup concerns quickly so BIS teams can respond faster.</p>
+
+      <div id="issueAlert"></div>
+
+      <form id="issuePageForm">
+        <div class="field">
+          <label for="locationZone">Location/Zone</label>
+          <select id="locationZone" required>
+            <option value="">Select location</option>
+            <option value="Canteen">Canteen</option>
+            <option value="Library">Library</option>
+            <option value="Main Gate">Main Gate</option>
+            <option value="Parking">Parking</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="issueType">Issue Type</label>
+          <select id="issueType" required>
+            <option value="">Select issue type</option>
+            <option value="Overflowing Bin">Overflowing Bin</option>
+            <option value="Litter on Ground">Litter on Ground</option>
+            <option value="Broken Dustbin">Broken Dustbin</option>
+            <option value="Spilled Chemicals">Spilled Chemicals</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="issueDescriptionText">Description</label>
+          <textarea id="issueDescriptionText" rows="4" placeholder="Please describe the issue briefly..." required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="issuePhotoUpload">Upload Photo</label>
+          <input class="file-pick" id="issuePhotoUpload" type="file" accept="image/*" />
+        </div>
+
+        <button class="submit-btn" type="submit">Report Issue</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    EcoCampus - Fresh and Minimal Pastel System
+  </footer>
+
+  <script src="assets/js/report-issue-page.js"></script>
+</body>
+</html>

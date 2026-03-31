@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenTrack | Action Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/eco-pages.css" rel="stylesheet" />
+</head>
+<body class="app-page">
+  <header class="eco-nav">
+    <div class="nav-wrap">
+      <p class="brand">GreenTrack</p>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="learn-segregation.html">Learn Segregation</a>
+        <a href="report-issue.html">Report an Issue</a>
+        <a class="active" href="dashboard.html">Dashboard</a>
+        <a href="impact.html">Impact</a>
+        <a href="gallery.html">Gallery</a>
+        <button id="logoutBtn" class="nav-logout" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="mb-4">
+      <h1 class="page-title">The Action Dashboard</h1>
+      <p class="page-subtitle">Learn smart segregation and submit your weekly cleanup evidence.</p>
+    </section>
+
+    <section class="mb-5">
+      <h2 class="section-title">Waste Segregation at a Glance</h2>
+      <div class="row g-3">
+        <div class="col-md-6 col-xl-3">
+          <article class="edu-card edu-organic h-100">
+            <h3>Organic</h3>
+            <p>Food scraps, peels, garden leaves. Route to compost systems.</p>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <article class="edu-card edu-recyclable h-100">
+            <h3>Recyclable</h3>
+            <p>Paper, metal cans, glass, clean plastic. Keep dry and sorted.</p>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <article class="edu-card edu-hazardous h-100">
+            <h3>Hazardous</h3>
+            <p>Batteries, chemicals, e-waste. Use marked hazardous bins only.</p>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <article class="edu-card edu-residual h-100">
+            <h3>Residual</h3>
+            <p>Contaminated wrappers and non-recyclables. Minimize this stream.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-card">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <h2 class="section-title mb-0">Task Logger</h2>
+        <span id="currentUserBadge" class="badge text-bg-success"></span>
+      </div>
+      <div id="taskAlert"></div>
+      <form id="taskLoggerForm" class="row g-3" novalidate>
+        <div class="col-md-4">
+          <label class="form-label" for="taskZone">Assigned Zone</label>
+          <select class="form-select" id="taskZone" required></select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label" for="taskGroupName">BIS Group</label>
+          <select class="form-select" id="taskGroupName" required></select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label" for="taskDate">Date</label>
+          <input class="form-control" id="taskDate" type="date" required />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="beforePhoto">Before Photo</label>
+          <input class="form-control" id="beforePhoto" type="file" accept="image/*" required />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="afterPhoto">After Photo</label>
+          <input class="form-control" id="afterPhoto" type="file" accept="image/*" required />
+        </div>
+        <div class="col-12 d-grid d-sm-flex justify-content-sm-end">
+          <button class="btn-pastel-inline" type="submit">Submit Cleaning Proof</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    EcoCampus - Fresh and Minimal Pastel System
+  </footer>
+
+  <button id="reportIssueFab" class="report-fab" type="button" data-bs-toggle="modal" data-bs-target="#reportIssueModal" aria-label="Report Issue">!</button>
+
+  <div class="modal fade" id="reportIssueModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Report a Campus Issue</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="reportIssueForm">
+          <div class="modal-body">
+            <div id="reportIssueAlert"></div>
+            <div class="mb-3">
+              <label class="form-label" for="issueZone">Zone</label>
+              <select class="form-select" id="issueZone" required></select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="issueDescription">Description</label>
+              <textarea class="form-control" id="issueDescription" rows="3" placeholder="Describe the issue" required></textarea>
+            </div>
+            <div>
+              <label class="form-label" for="issuePhoto">Photo (Optional)</label>
+              <input class="form-control" id="issuePhoto" type="file" accept="image/*" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger">Submit Report</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/app-init.js"></script>
+  <script src="assets/js/report-issue.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
