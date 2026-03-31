@@ -3,6 +3,7 @@ services:
     name: greentrack-app
     env: node
     region: oregon
+    plan: free
     buildCommand: npm install
     startCommand: npm start
     envVars:
