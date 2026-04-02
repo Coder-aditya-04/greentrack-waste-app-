@@ -26,9 +26,13 @@ function makeId(prefix) {
 
 /* --- Database Bootstrap and Seed --- */
 async function bootstrapDatabase() {
-  const bootstrapPool = createPool(false);
-  await bootstrapPool.query(`CREATE DATABASE IF NOT EXISTS ${SAFE_DB_NAME}`);
-  await bootstrapPool.end();
+  try {
+    const bootstrapPool = createPool(false);
+    await bootstrapPool.query(`CREATE DATABASE IF NOT EXISTS ${SAFE_DB_NAME}`);
+    await bootstrapPool.end();
+  } catch (err) {
+    console.warn("Notice: Could not execute CREATE DATABASE (you may be using a managed DB). Skipping to table creation.", err.message);
+  }
 
   pool = createPool(true);
 
