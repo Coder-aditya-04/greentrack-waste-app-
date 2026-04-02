@@ -356,13 +356,14 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
+app.listen(PORT, () => {
+  console.log(`GreenTrack server running at http://localhost:${PORT}`);
+});
+
 bootstrapDatabase()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`GreenTrack server running at http://localhost:${PORT}`);
-    });
+    console.log('Database bootstrapped successfully.');
   })
   .catch((error) => {
     console.error('Database bootstrap failed:', error.message);
-    process.exit(1);
   });

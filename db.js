@@ -9,7 +9,7 @@ function createPool(includeDatabase) {
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
-    ssl: process.env.DB_HOST && process.env.DB_HOST.includes('aivencloud') ? { rejectUnauthorized: false } : undefined
+    ssl: (process.env.DB_HOST && process.env.DB_HOST !== '127.0.0.1' && process.env.DB_HOST !== 'localhost') ? { rejectUnauthorized: false } : undefined
   };
 
   if (includeDatabase !== false) {
